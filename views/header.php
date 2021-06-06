@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang='ua'>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Cuprum&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="<?php echo WWW; ?>/css/authorization_form.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WWW; ?>/css/all.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WWW; ?>/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WWW; ?>/css/main.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WWW; ?>/css/menu.css">
+	<script type="text/javascript" src="<?php echo WWW; ?> bootstrap.js"></script>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+	
+	<title>ІС "Студенти комп'ютерних спеціальностей"</title>
+</head>
+<body>
+

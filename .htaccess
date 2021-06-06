@@ -1,0 +1,4 @@
+# Увімкнути Apache-мод перенаправлення url-запитів.
+RewriteEngine On
+# Перенаправляє запит у папку public_html
+RewriteRule ^(.*) public_html/$1

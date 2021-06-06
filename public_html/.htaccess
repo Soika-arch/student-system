@@ -1,0 +1,14 @@
+# Відключення екранування лапок
+php_flag magic_qotes_gpc off
+AddDefaultCharset utf-8
+DirectoryIndex index.php
+
+php_flag  display_startup_errors on
+php_flag  display_errors on
+
+# Увімкнути Apache-мод перенаправлення url-запитів
+RewriteEngine on
+# Якщо url-запит не конкретний файл у public_html
+RewriteCond %{REQUEST_FILENAME} !-f
+# Усі запити надсилати до index.php
+RewriteRule ^(.*)$ ./index.php? [L,QSA]
