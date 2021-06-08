@@ -30,11 +30,12 @@ $Data["groups"] = db_query($sql);
 			</li>
 			<li><a href=""><i class="far fa-calendar-alt"></i>Відвідуваність</a>
 				<ul>
-				   <li><a href="#"></a></li>
-				   <li><a href="#"></a></li>
-				   <li><a href="#"></a></li>
-				   <li><a href="#"></a></li>
-				   <li><a href="#"></a></li>
+					<?php
+					foreach ($Data["groups"] as $key => $group) { 
+						$url = WWW ."/attendance?id=". $group["id"];
+						$name = $group["cipher"];
+						echo "<li><a href=$url>$name</a></li>";
+					} ?>
 				</ul>
 			</li>
 			<li><a href=""><i class="fas fa-edit"></i>Додати</a>
