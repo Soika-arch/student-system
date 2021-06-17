@@ -36,8 +36,8 @@ else {
   // Константи підключення до БД
   define("DbHost", "localhost");
   define("DbName", "accounting_students");
-  define("DbUser", "root");
-  define("DbPass", "");
+  define("DbUser", "admin");
+  define("DbPass", "121010");
 
   // Публічна папка сайту
   define("WWW", "http://". Domein);

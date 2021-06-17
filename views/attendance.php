@@ -11,28 +11,51 @@
 
 <form action="<?php echo WWW ."/attendance?id=". $_GET['id']; ?>" method="POST" class="date-select">
 	<div class="form-group row">
+		<?php // debug($Data["ua_months"], __FILE__, __LINE__, 1); ?>
 		<div class="form-group col-md-2">
 			<select name="month" class="form-control">
-				<option value="1">Січень</option>
-				<option value="2">Лютий</option>
-				<option value="3">Березень</option>
-				<option value="4">Квітень</option>
-				<option value="5">Травень</option>
-				<option value="6">Червень</option>
-				<option value="7">Липень</option>
-				<option value="8">Серпень</option>
-				<option value="9">Вересень</option>
-				<option value="10">Жовтень</option>
-				<option value="11">Листопад</option>
-				<option value="12">Грудень</option>
+				<?php 
+				if (isset($_POST["select_date"])) {
+					foreach ($Data["missing_months"] as $key => $date) {
+						$n = $date["m"] - 1;
+						if ($date["m"] == $_POST["month"]) {
+							echo "<option value='{$date["m"]}' selected>{$Data["ua_months"][$n]}</option>";
+						}
+						else {
+							echo "<option value='{$date["m"]}'>{$Data["ua_months"][$n]}</option>";
+						}
+					}
+				}
+				else {
+				?>
+				<?php 
+				foreach ($Data["ua_months"] as $key => $month) {
+					if (($key + 1) == $Data["month"]) {
+						echo "<option value=". ($key + 1) ." selected>{$month}</option>";
+					}
+					else {
+						echo "<option value=". ($key + 1) .">{$month}</option>";
+					}
+				}
+				?>
+				<?php } // конец else ?>
 			</select>
 			<select name="year" class="form-control">
-				<option>2020</option>
-				<option selected>2021</option>
+				<?php 
+				foreach ($Data["missing_years"] as $key => $year) {
+					if ($year["y"] == $Data["year"]) {
+						echo "<option selected>{$year["y"]}</option>";
+					}
+					else {
+						echo "<option>{$year["y"]}</option>";
+					}
+				}
+				?>
 			</select>
 		</div>
 	</div>
 	<input type="submit" name="select_date" value="Обрати">
+	<?php echo "<a href='". WWW ."/attendance?id=". $_GET["id"] ."' class='submit-button'>Сброс</a>"; ?>
 </form>
 <style type="text/css">
 	tr, th, td {
@@ -95,7 +118,7 @@
 							}
 						}
 						else {
-							echo "<td>бп</td>";
+							echo "<td></td>";
 						}
 					}
 					?>
